@@ -1,10 +1,12 @@
+var bagMenuData=Java.type("com.goldenglow.common.guis.NewCustomGuis.pokehelper.bag.BagDataHandler").instance;
+
 function openBag(event){
     var gui=event.API.createCustomGui(0, 256, 256, false);
     gui.setBackgroundTexture("obscureobsidian:textures/gui/black_square.png");
     //Ideally remove the line below and properly integrate the 2nd color layer into one image with the background
     gui.addTexturedRect(100, "obscureobsidian:textures/gui/grey_square.png", 0, 0, 256, 20);
     //The previous comment applies to the line above this one
-    gui.addLabel(200, "Category Name Here", 100, 0, 128, 20);
+    gui.addLabel(200, bagMenuData.getBagData(event.player).getBagCategory().getName(), 100, 0, 128, 20);
     gui.addButton(501, "0", 6, 26, 20, 20);
     gui.addButton(502, "1", 38, 26, 20, 20);
     gui.addButton(503, "2", 70, 26, 20, 20);
